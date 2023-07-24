@@ -1,7 +1,7 @@
 import { Controller, Param, Get, Render, Post, Body } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import * as crypto from 'crypto';
-import { UserService } from './../Service/user/user.service';
+import { UserService } from './../../Service/user/user.service';
 
 @Controller('signup')
 export class SignupController {

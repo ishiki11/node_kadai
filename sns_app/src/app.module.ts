@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import { SignupController } from './Controller/signup.controller';
+import { SignupController } from './Controller/signup/signup.controller';
 
 @Module({
   imports: [
