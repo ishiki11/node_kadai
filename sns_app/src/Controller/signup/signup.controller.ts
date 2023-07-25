@@ -22,10 +22,10 @@ export class SignupController {
     const repassword = data.password[1];
 
     // データベース登録
-    const result = await this.UserService.createUser(
-      mail,
-      password,
-      repassword,
-    );
+    // const result = await this.UserService.createUser(
+    //   mail,
+    //   password,
+    //   repassword,
+    // );
   }
 }
