@@ -34,7 +34,7 @@ model followers {
   follow_id Int
   follower_id Int
   created_at DateTime @default(now())
-  @@id([follow_id,follower_id])
+  @@id([follow_id, follower_id])
 }
 
 model posts {
@@ -58,4 +58,3 @@ model comments {
   content String
   created_at DateTime @default(now())
 }
-
