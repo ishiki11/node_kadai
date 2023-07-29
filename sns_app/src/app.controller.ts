@@ -5,6 +5,7 @@ import * as crypto from 'crypto';
 
 @Controller()
 export class AppController {
+  // constructorに入れることで自動でDIする
   constructor(private readonly appService: AppService) {}
 
   // サインイン
@@ -13,6 +14,6 @@ export class AppController {
   signin() {
     return {
       title: 'ログイン',
-    }
+    };
   }
 }
