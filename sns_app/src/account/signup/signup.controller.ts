@@ -49,8 +49,12 @@ export class SignupController {
   }
 
   @Get('test')
-  async getAllAcounts(): Promise<void> {
-    const account = await this.accountService.getAccount();
-    console.log(account);
+  async getAccount(@Res() response) {
+    try {
+      const accounts = await this.accountService.getAccount();
+      return response.json(accounts);
+    } catch (error) {
+      return response.json({ error: error.message });
+    }
   }
 }
