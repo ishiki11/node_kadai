@@ -47,14 +47,4 @@ export class SignupController {
       }
     }
   }
-
-  @Get('test')
-  async getAccount(@Res() response) {
-    try {
-      const accounts = await this.accountService.getAccount();
-      return response.json(accounts);
-    } catch (error) {
-      return response.json({ error: error.message });
-    }
-  }
 }

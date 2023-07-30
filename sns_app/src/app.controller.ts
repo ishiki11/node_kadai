@@ -1,19 +1,20 @@
-import { Controller, Param, Get, Render, Post, Body } from '@nestjs/common';
+import { Controller, Get, Res } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Injectable } from '@nestjs/common';
-import * as crypto from 'crypto';
 
 @Controller()
 export class AppController {
+  accountService: any;
   // constructorに入れることで自動でDIする
   constructor(private readonly appService: AppService) {}
 
-  // サインイン
-  @Get('/signin')
-  @Render('signin')
-  signin() {
-    return {
-      title: 'ログイン',
-    };
+  // アカウント一覧取得
+  @Get('test')
+  async getAccount(@Res() response) {
+    try {
+      const accounts = await this.accountService.getAccount();
+      return response.json(accounts);
+    } catch (error) {
+      return response.json({ error: error.message });
+    }
   }
 }
