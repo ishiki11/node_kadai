@@ -95,7 +95,14 @@
   font-size: 32px;
   font-weight: 500;
   word-wrap: break-word;
+  cursor: pointer;
 }
 .login:hover {
   background-color: #cbcecc;
+  cursor: pointer;
+}
+/* disable状態の時 */
+.login:disabled {
+  cursor: not-allowed;
+  background-color: #d8dbd9;
 }

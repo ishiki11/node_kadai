@@ -95,7 +95,13 @@
   font-size: 32px;
   font-weight: 500;
   word-wrap: break-word;
+  cursor: pointer;
 }
 .login:hover {
   background-color: #cbcecc;
+  cursor: pointer;
+}
+.login:disabled {
+  background-color: #d8dbd9;
+  cursor: not-allowed;
 }
