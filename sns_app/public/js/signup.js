@@ -1,5 +1,5 @@
 // input属性取得
-const emailInput = document.getElementById('mail');
+const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const repasswordInput = document.getElementById('repassword');
 const submitButton = document.getElementById('submit');
