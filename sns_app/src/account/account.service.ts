@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient, Accounts } from '@prisma/client';
-import { hash } from 'bcrypt';
+import { validate } from 'class-validator';
+import { bcypt } from 'bcrypt';
 
 @Injectable()
 export class AccountService {
@@ -28,6 +29,11 @@ export class AccountService {
     if (!this.findAccountByEmail(email)) {
       return new Error('既に登録されたメールアドレスです');
     }
+    /**
+     * パスワードハッシュ化
+     */
+    const saltRounds = 10;
+    const hashed_password = await bcypt.hash(password, saltRounds);
   }
 
   // メールが一意か
