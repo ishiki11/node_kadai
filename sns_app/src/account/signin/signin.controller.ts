@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Render, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Render, Req, Res } from '@nestjs/common';
 import { AccountService } from './../account.service';
 import { CreateAccountDto } from '../dto/account.dto';
 import { validate } from 'class-validator';
@@ -14,7 +14,7 @@ export class SigninController {
 
   // サインインの処理
   @Post()
-  async signinAccount(@Body() data: any, @Res() response) {
+  async signinAccount(@Body() data: any, @Res() response, @Req() request) {
     console.log(data);
     // validation実行
     const createAccountDto = new CreateAccountDto();
@@ -31,17 +31,18 @@ export class SigninController {
       );
       console.log('flat', flatErrors);
       // errorをhbsに表示
-      return response.render('signup', {
+      return response.render('signin', {
         errors: flatErrors,
       });
     } else {
+      // ログイン処理
       try {
-        // validation通ったdata
-        // ログイン処理
-        return response.redirect('/');
+        const result = await this.accountService.signinAccount(data); // ログイン実行
+        request.session.account_id = result.account_id; // アカウントIDをセッションに入れる
+        return response.redirect('/'); // トップにリダイレクト
       } catch (error) {
         console.log(error.message); // エラーが発生した場合はエラーメッセージを表示
-        return response.render('signup', {
+        return response.render('signin', {
           errors: [error.message],
         });
       }
