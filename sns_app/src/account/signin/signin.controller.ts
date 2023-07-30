@@ -14,7 +14,11 @@ export class SigninController {
 
   // サインインの処理
   @Post()
-  async signinAccount(@Body() data: any, @Res() response, @Req() request) {
+  async signinAccount(
+    @Body() data: any,
+    @Res() response: any,
+    @Req() request: any,
+  ) {
     console.log(data);
     // validation実行
     const createAccountDto = new CreateAccountDto();

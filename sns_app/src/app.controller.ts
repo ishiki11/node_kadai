@@ -9,7 +9,7 @@ export class AppController {
 
   @Get('')
   @Render('index')
-  home(@Req() request, @Res() response) {
+  home(@Req() request: any, @Res() response: any) {
     const account_id = request.session.account_id;
     console.log(account_id);
     if (!account_id) {
@@ -18,14 +18,14 @@ export class AppController {
   }
 
   @Get('logout')
-  Logout(@Req() request, @Res() response) {
+  Logout(@Req() request: any, @Res() response: any) {
     request.session = null;
     return response.redirect('signin');
   }
 
   // アカウント一覧取得
   @Get('test')
-  async getAccount(@Res() response) {
+  async getAccount(@Res() response: any) {
     try {
       const accounts = await this.accountService.getAccount();
       return response.json(accounts);

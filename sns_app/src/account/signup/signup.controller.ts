@@ -14,7 +14,11 @@ export class SignupController {
 
   // サインアップの処理
   @Post()
-  async createAccount(@Body() data: any, @Res() response, @Res() request) {
+  async createAccount(
+    @Body() data: any,
+    @Res() response: any,
+    @Res() request: any,
+  ) {
     console.log(data);
     // validation実行
     const createAccountDto = new CreateAccountDto();
