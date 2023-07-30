@@ -5,9 +5,9 @@ export class CreateAccountDto {
   email: string;
 
   @IsString()
-  @Length(8, 20, { message: '8文字以上20文字以下で入力して下さい' })
+  @Length(8, 20, { message: 'パスワードは8文字以上20文字以下で入力して下さい' })
   @Matches(/^(?=.*[a-zA-Z])(?=.*\d).{8,20}$/, {
-    message: '英字と数字を含む形で入力して下さい',
+    message: 'パスワードは英字と数字を含む形で入力して下さい',
   })
   password: string;
 }
