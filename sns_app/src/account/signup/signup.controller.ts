@@ -1,6 +1,6 @@
 import { Controller, Get, Render, Post, Body, Res } from '@nestjs/common';
 import { AccountService } from './../account.service';
-import { CreateAccountDto } from './../dto/signup.dto';
+import { CreateAccountDto } from '../dto/account.dto';
 import { validate } from 'class-validator';
 
 @Controller('signup')
