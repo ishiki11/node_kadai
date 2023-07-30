@@ -14,7 +14,7 @@ export class SignupController {
 
   // サインアップの処理
   @Post()
-  async createAccount(@Body() data: any, @Res() response) {
+  async createAccount(@Body() data: any, @Res() response, @Res() request) {
     console.log(data);
     // validation実行
     const createAccountDto = new CreateAccountDto();
@@ -36,9 +36,9 @@ export class SignupController {
     } else {
       try {
         // validation通ったdata
-        const result = await this.accountService.createAccount(data);
-        console.log(result);
-        return response.redirect('/');
+        const result = await this.accountService.createAccount(data); // アカウント作成実行
+        request.session.account_id = result.account_id; // アカウントIDをセッションに入れる
+        return response.redirect('/'); // トップにリダイレクト
       } catch (error) {
         console.log(error.message); // エラーが発生した場合はエラーメッセージを表示
         return response.render('signup', {
