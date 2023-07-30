@@ -1,0 +1,125 @@
+/* 画面全体 */
+.signup {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+  font-size: 16px;
+  color: #000;
+  font-family: 'M PLUS 2';
+}
+/* SNSAPP */
+.title {
+  text-align: center;
+  height: 7rem;
+  font-size: 7rem;
+  margin-top: 1rem;
+  font-family: 'Love Ya Like A Sister';
+  color: #1f1e53;
+  user-select: none;
+}
+/* アカウント作成 */
+.div {
+  margin: 0 auto;
+  text-align: right;
+  width: 25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+/* 枠線の箱 */
+.signup-child {
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  border-radius: 45px;
+  background-color: rgba(255, 255, 255, 0);
+  border: 10px solid #dcd5c8;
+  box-sizing: border-box;
+  width: 35rem;
+  height: 30rem;
+}
+/* エラー */
+.error {
+  width: fit-content;
+  margin: auto;
+  color: red;
+}
+
+/* メールアドレス大枠 */
+.div1 {
+  width: 25rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+/* メールアドレス */
+.div2 {
+  font-size: 1.5rem;
+  word-wrap: break-word;
+}
+/* input */
+.input {
+  padding: 0.5rem;
+  width: 25rem;
+  font-size: 1.3rem;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+/* input フォーカス時枠線 */
+.input:focus {
+  outline: none;
+  border-bottom: 1px solid #000;
+}
+/* パスワード大枠 */
+.div3 {
+  width: 25rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+/* パスワード  ※英数含む8文字以上 */
+.flex {
+  display: flex;
+  align-items: flex-end;
+}
+/* パスワード */
+.div4 {
+  font-size: 1.5rem;
+  word-wrap: break-word;
+}
+/* ※英数含む8文字以上 */
+.div5 {
+  font-size: 1rem;
+  margin-left: 2rem;
+}
+/* ログイン */
+.div6 {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+/* ログインボタン */
+.login {
+  background-color: #d8dbd9;
+  border-radius: 1.5rem;
+  border: none;
+  width: 10rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+.login:hover {
+  background-color: #cbcecc;
+  cursor: pointer;
+}
+/* disable状態の時 */
+.login:disabled {
+  cursor: not-allowed;
+  background-color: #d8dbd9;
+}
+/* ログインへ */
+.link {
+  margin-top: 0.3rem;
+  text-align: right;
+  margin-right: 3rem;
+}
