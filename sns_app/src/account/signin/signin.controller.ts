@@ -1,23 +1,23 @@
-import { Controller, Get, Render, Post, Body, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Render, Req, Res } from '@nestjs/common';
 import { AccountService } from './../account.service';
 import { CreateAccountDto } from '../dto/account.dto';
 import { validate } from 'class-validator';
 
-@Controller('signup')
-export class SignupController {
+@Controller('signin')
+export class SigninController {
   constructor(private readonly accountService: AccountService) {}
 
-  // サインアップ
+  // サインイン
   @Get()
-  @Render('signup')
-  signUp() {}
+  @Render('signin')
+  signUp(): void {}
 
-  // サインアップの処理
+  // サインインの処理
   @Post()
-  async createAccount(
+  async signinAccount(
     @Body() data: any,
     @Res() response: any,
-    @Res() request: any,
+    @Req() request: any,
   ) {
     console.log(data);
     // validation実行
@@ -34,18 +34,19 @@ export class SignupController {
         Object.values(error.constraints),
       );
       console.log('flat', flatErrors);
-      return response.render('signup', {
+      // errorをhbsに表示
+      return response.render('signin', {
         errors: flatErrors,
       });
     } else {
+      // ログイン処理
       try {
-        // validation通ったdata
-        const result = await this.accountService.createAccount(data); // アカウント作成実行
+        const result = await this.accountService.signinAccount(data); // ログイン実行
         request.session.account_id = result.account_id; // アカウントIDをセッションに入れる
         return response.redirect('/'); // トップにリダイレクト
       } catch (error) {
         console.log(error.message); // エラーが発生した場合はエラーメッセージを表示
-        return response.render('signup', {
+        return response.render('signin', {
           errors: [error.message],
         });
       }

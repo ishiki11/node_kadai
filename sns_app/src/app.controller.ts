@@ -1,19 +1,36 @@
-import { Controller, Param, Get, Render, Post, Body } from '@nestjs/common';
+import { Controller, Get, Render, Req, Res } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Injectable } from '@nestjs/common';
-import * as crypto from 'crypto';
 
 @Controller()
 export class AppController {
+  accountService: any;
   // constructorに入れることで自動でDIする
   constructor(private readonly appService: AppService) {}
 
-  // サインイン
-  @Get('/signin')
-  @Render('signin')
-  signin() {
-    return {
-      title: 'ログイン',
-    };
+  @Get('')
+  @Render('index')
+  home(@Req() request: any, @Res() response: any) {
+    const account_id = request.session.account_id;
+    console.log(account_id);
+    if (!account_id) {
+      return response.redirect('signin');
+    }
+  }
+
+  @Get('logout')
+  Logout(@Req() request: any, @Res() response: any) {
+    request.session = null;
+    return response.redirect('signin');
+  }
+
+  // アカウント一覧取得
+  @Get('test')
+  async getAccount(@Res() response: any) {
+    try {
+      const accounts = await this.accountService.getAccount();
+      return response.json(accounts);
+    } catch (error) {
+      return response.json({ error: error.message });
+    }
   }
 }
