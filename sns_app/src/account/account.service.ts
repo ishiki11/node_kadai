@@ -60,7 +60,7 @@ export class AccountService {
       console.log('パスワードが一致しました');
     } else {
       // パスワードが一致しない場合の処理
-      throw new Error('パスワードが一致しません');
+      throw new Error('パスワードが間違っています');
     }
     return account;
   }

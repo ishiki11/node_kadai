@@ -38,6 +38,12 @@
   width: 35rem;
   height: 30rem;
 }
+/* エラー */
+.error {
+  width: fit-content;
+  margin: auto;
+  color: red;
+}
 /* メールアドレス大枠 */
 .div1 {
   width: 25rem;
