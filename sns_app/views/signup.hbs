@@ -18,7 +18,15 @@
       <form action='signup' method='post'>
         <div class='title'>SNSAPP</div>
         <div class='div'>アカウント作成</div>
-        <div>{{errors}}</div>
+        {{#if errors}}
+          <div class='error'>
+            <ul>
+              {{#each errors}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        {{/if}}
         <div class='signup-child'>
           <div class='div1'>
             <div class='div2'>メールアドレス</div>

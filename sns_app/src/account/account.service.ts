@@ -12,26 +12,23 @@ export class AccountService {
 
   // account作成
   async createAccount(data: any) {
-    console.log(data);
-    const email = data.mail;
+    const email = data.email;
     const password = data.password;
     const repassword = data.repassword;
     // 空が一つでもある時
     if (!email || !password || !repassword) {
-      return new Error('すべて入力して下さい');
+      throw new Error('すべて入力して下さい');
     }
     // パスワードが一致しないとき
     if (password != repassword) {
-      return new Error('パスワードが一致しません');
+      throw new Error('パスワードが一致しません');
     }
     // メールが一意じゃないとき
     const uniqueEmail = await this.findAccountByEmail(email);
     if (uniqueEmail) {
-      return new Error('既に登録されたメールアドレスです');
+      throw new Error('既に登録されたメールアドレスです');
     }
-    /**
-     * パスワードハッシュ化
-     */
+    /* パスワードハッシュ化 */
     const saltRounds = 10;
     const hashed_password = await bcrypt.hash(password, saltRounds);
     return this.prisma.accounts.create({

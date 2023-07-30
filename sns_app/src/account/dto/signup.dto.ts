@@ -1,4 +1,4 @@
-import { IsString, IsEmail, Length, Matches } from 'class-validator';
+import { IsString, Length, Matches } from 'class-validator';
 
 export class CreateAccountDto {
   @IsString()
