@@ -16,6 +16,13 @@ export class AppController {
       return response.redirect('signin');
     }
   }
+
+  @Get('logout')
+  Logout(@Req() request, @Res() response) {
+    request.session = null;
+    return response.redirect('signin');
+  }
+
   // アカウント一覧取得
   @Get('test')
   async getAccount(@Res() response) {
