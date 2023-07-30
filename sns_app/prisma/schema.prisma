@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model accounts {
+model Accounts {
   account_id Int @id @default(autoincrement())
   email String @unique
   hashed_password String
@@ -20,7 +20,7 @@ model accounts {
   updated_at DateTime @updatedAt
 }
 
-model profiles {
+model Profiles {
   profile_id Int @id @default(autoincrement())
   account_id Int @unique
   name String
@@ -30,28 +30,28 @@ model profiles {
   updated_at DateTime @updatedAt
 }
 
-model followers {
+model Followers {
   follow_id Int
   follower_id Int
   created_at DateTime @default(now())
   @@id([follow_id, follower_id])
 }
 
-model posts {
+model Posts {
   post_id Int @id @default(autoincrement())
   account_id Int
   content String
   created_at DateTime @default(now())
 }
 
-model likes {
+model Likes {
   account_id Int
   post_id Int
   created_at DateTime @default(now())
   @@id([account_id, post_id])
 }
 
-model comments {
+model Comments {
   comment_id Int @id @default(autoincrement())
   account_id Int
   post_id Int
