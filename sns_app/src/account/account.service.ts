@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient, Accounts } from '@prisma/client';
-import { validate } from 'class-validator';
-import { bcypt } from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AccountService {
@@ -26,14 +25,21 @@ export class AccountService {
       return new Error('パスワードが一致しません');
     }
     // メールが一意じゃないとき
-    if (!this.findAccountByEmail(email)) {
+    const uniqueEmail = await this.findAccountByEmail(email);
+    if (uniqueEmail) {
       return new Error('既に登録されたメールアドレスです');
     }
     /**
      * パスワードハッシュ化
      */
     const saltRounds = 10;
-    const hashed_password = await bcypt.hash(password, saltRounds);
+    const hashed_password = await bcrypt.hash(password, saltRounds);
+    return this.prisma.accounts.create({
+      data: {
+        email: email,
+        hashed_password: hashed_password,
+      },
+    });
   }
 
   // メールが一意か
@@ -43,5 +49,10 @@ export class AccountService {
         email,
       },
     });
+  }
+
+  // アカウント一覧取得
+  async getAccount(): Promise<Accounts[]> {
+    return this.prisma.accounts.findMany();
   }
 }

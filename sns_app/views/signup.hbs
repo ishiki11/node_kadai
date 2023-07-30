@@ -2,7 +2,7 @@
   <head>
     <meta charset='utf-8' />
     <meta name='viewport' content='initial-scale=1, width=device-width' />
-    <title>{{title}}</title>
+    <title>アカウント作成</title>
     <link rel='stylesheet' href='./styles/signup.css' />
     <link
       rel='stylesheet'
@@ -18,10 +18,11 @@
       <form action='signup' method='post'>
         <div class='title'>SNSAPP</div>
         <div class='div'>アカウント作成</div>
+        <div>{{errors}}</div>
         <div class='signup-child'>
           <div class='div1'>
             <div class='div2'>メールアドレス</div>
-            <input type='email' name='mail' id='mail' class='input' />
+            <input type='email' name='email' id='email' class='input' />
           </div>
           <div class='div3'>
             <div class='flex'>
