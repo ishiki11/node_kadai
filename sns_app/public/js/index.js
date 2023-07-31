@@ -1,3 +1,12 @@
+// ボタン要素とモーダル要素の取得
+const closeModalButton = document.getElementById('closeModalButton');
+const postModal = document.getElementById('postModal');
+
+// 閉じるボタンのクリックイベント
+closeModalButton.addEventListener('click', () => {
+  postModal.style.display = 'none';
+});
+
 // イベント
 function home() {
   location.href = '/';
@@ -22,5 +31,5 @@ function logout() {
   location.href = '/logout';
 }
 function send() {
-  console.log('send');
+  postModal.style.display = 'block';
 }

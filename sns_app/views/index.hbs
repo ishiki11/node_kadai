@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class='top'>
-      <!-- 左部分 -->
+      {{! 左部分  }}
       <div class='sidebar'>
         <div class='title'><a href='/'>SNSAPP</a></div>
         <div class='sidebar-item'>
@@ -47,7 +47,7 @@
           </button>
         </div>
       </div>
-      <!-- 右部分　投稿 -->
+      {{!  右部分　投稿  }}
       <div class='posts'>
         <div class='post'>
           <div class='user-info'>
@@ -95,6 +95,27 @@
           <div class='like'>
             <img src='./images/like.png' alt='ハート' />
           </div>
+        </div>
+      </div>
+      {{! 投稿する部分 }}
+      <div class='modal' id='postModal'>
+        <div class='modal-content'>
+          <span class='close' id='closeModalButton'>&times;</span>
+          <div class='my-info'>
+            <div class='icon-box'>
+              <img src='./images/.png' alt='' class='icon' />
+            </div>
+            <div>
+              <div class='my-profile'>PIHIEF(30</div>
+              <div class='user-name'>あいうえお</div>
+            </div>
+          </div>
+          <textarea
+            id='postContent'
+            rows='8'
+            placeholder='今どうしてる？'
+          ></textarea>
+          <button id='postButton'>投稿</button>
         </div>
       </div>
     </div>
