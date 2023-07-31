@@ -28,6 +28,10 @@ html {
   top: 1.2vh;
   left: 2vw;
 }
+.title > a {
+  text-decoration: none;
+  color: #1f1e53;
+}
 /* サイドバータイトル以外 */
 .sidebar-item {
   width: 20vw;
@@ -37,33 +41,30 @@ html {
   display: flex;
   align-items: center;
 }
+/* 検索、通知、メッセージ、プロフィール */
+.home,
+.search,
+.bell,
+.dm,
+.profile,
+.logout {
+  cursor: pointer;
+  margin-top: 5vh;
+}
 /* サイドバーの文字 */
 .sidebar-text {
   color: #000;
   font-family: 'M PLUS 2';
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 /* サイドバーの画像 */
 .img {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   margin-right: 1.5vw;
-}
-/* 検索、通知、メッセージ、プロフィール */
-.home,
-.search,
-.bell,
-.dm,
-.profile {
-  cursor: pointer;
-  margin-top: 5vh;
-}
-/* home */
-.home {
-  margin-top: 8vh;
 }
 /* send */
 .send {
