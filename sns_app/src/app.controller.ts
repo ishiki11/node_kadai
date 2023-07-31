@@ -11,7 +11,6 @@ export class AppController {
   @Render('index')
   home(@Req() request: any, @Res() response: any) {
     const account_id = request.session.account_id;
-    console.log(account_id);
     if (!account_id) {
       return response.redirect('signin');
     }
