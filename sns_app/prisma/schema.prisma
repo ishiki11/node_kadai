@@ -17,14 +17,17 @@ model Accounts {
   is_active Boolean @default(true)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  profile Profiles?
 }
 
 model Profiles {
-  profile_id Int @id @default(autoincrement())
-  account_id Int @unique
-  name String
-  self_pr String
-  icon String
+  // ProfilesのアカウントIDとAccountsのアカウントIDを一対一の関係にした
+  account_id Int @id @unique
+  account Accounts @relation(fields: [account_id], references: [account_id])
+  profile_id String @unique @default(uuid())
+  name String @default("名無しさん")
+  self_pr String?
+  icon String @default("https://icooon-mono.com/i/icon_14440/icon_144400.svg")
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
