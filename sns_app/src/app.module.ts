@@ -6,13 +6,12 @@ import { join } from 'path';
 import { SignupController } from './account/signup/signup.controller';
 import { AccountService } from './account/account.service';
 import { SigninController } from './account/signin/signin.controller';
-import { ProfileService } from './profile/profile.service';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
   ],
   controllers: [AppController, SignupController, SigninController],
-  providers: [AppService, AccountService, ProfileService],
+  providers: [AppService, AccountService],
 })
 export class AppModule {}

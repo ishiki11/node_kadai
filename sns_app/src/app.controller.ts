@@ -18,7 +18,7 @@ export class AppController {
 
   @Get('logout')
   Logout(@Req() request: any, @Res() response: any) {
-    request.session = {};
+    request.session = null;
     return response.redirect('signin');
   }
 
