@@ -24,8 +24,8 @@ export class AppController {
     console.log(posts);
     const myProfile = await this.profileService.findProfileById(account_id);
     console.log(myProfile);
-
     return response.render('index', {
+      posts: posts,
       myProfile: myProfile,
     });
   }
