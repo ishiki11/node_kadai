@@ -14,16 +14,18 @@ export class SignupController {
   // サインアップ
   @Get()
   @Render('signup')
-  signUp() {}
+  signUp(@Req() request) {
+    // セッション破棄
+    request.session = {};
+  }
 
   // サインアップの処理
   @Post()
   async createAccount(
     @Body() data: any,
     @Res() response: any,
-    @Res() request: any,
+    @Req() request: any,
   ) {
-    console.log(data);
     // validation実行
     const createAccountDto = new CreateAccountDto();
     createAccountDto.email = data.email;
@@ -33,11 +35,9 @@ export class SignupController {
     });
     if (errors.length > 0) {
       // バリデーションエラーがある場合の処理
-      console.log(errors);
       const flatErrors = errors.flatMap((error) =>
         Object.values(error.constraints),
       );
-      console.log('flat', flatErrors);
       return response.render('signup', {
         errors: flatErrors,
       });
