@@ -1,11 +1,16 @@
 import { Controller, Get, Render, Req, Res } from '@nestjs/common';
 import { AppService } from './app.service';
+import { AccountService } from './account/account.service';
+import { ProfileService } from './profile/profile.service';
 
 @Controller()
 export class AppController {
-  accountService: any;
   // constructorに入れることで自動でDIする
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly accountService: AccountService,
+    private readonly profileService: ProfileService,
+  ) {}
 
   @Get('')
   @Render('index')
@@ -23,11 +28,22 @@ export class AppController {
   }
 
   // アカウント一覧取得
-  @Get('test')
+  @Get('account')
   async getAccount(@Res() response: any) {
     try {
       const accounts = await this.accountService.getAccount();
       return response.json(accounts);
+    } catch (error) {
+      return response.json({ error: error.message });
+    }
+  }
+
+  // プロフィール一覧取得
+  @Get('profile')
+  async getProfile(@Res() response: any) {
+    try {
+      const profiles = await this.profileService.getProfile();
+      return response.json(profiles);
     } catch (error) {
       return response.json({ error: error.message });
     }

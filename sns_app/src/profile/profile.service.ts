@@ -21,4 +21,9 @@ export class ProfileService {
       },
     });
   }
+
+  // プロフィール一覧取得
+  async getProfile(): Promise<Profiles[]> {
+    return this.prisma.profiles.findMany();
+  }
 }
