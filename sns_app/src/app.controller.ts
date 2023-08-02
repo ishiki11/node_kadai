@@ -1,4 +1,4 @@
-import { Controller, Get, Render, Req, Res } from '@nestjs/common';
+import { Controller, Get, Req, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import { AccountService } from './account/account.service';
 import { ProfileService } from './profile/profile.service';
@@ -14,10 +14,10 @@ export class AppController {
     private readonly postService: PostService,
   ) {}
 
-  @Get('')
+  @Get()
   async home(@Req() request: any, @Res() response: any) {
     const account_id = request.session.account_id;
-    if (!account_id) {
+    if (!request.session.account_id) {
       return response.redirect('signin');
     }
     const posts = await this.postService.getPost();

@@ -18,9 +18,4 @@ export class PostService {
       },
     });
   }
-
-  // 投稿を取得する
-  async getPost() {
-    return this.prisma.posts.findMany();
-  }
 }

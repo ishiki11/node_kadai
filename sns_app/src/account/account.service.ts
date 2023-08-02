@@ -74,6 +74,15 @@ export class AccountService {
     });
   }
 
+  // 投稿一覧取得
+  async getPost(): Promise<Accounts[]> {
+    return this.prisma.accounts.findMany({
+      where: {
+        is_active: true,
+      },
+    });
+  }
+
   // アカウント一覧取得
   async getAccount(): Promise<Accounts[]> {
     return this.prisma.accounts.findMany();
