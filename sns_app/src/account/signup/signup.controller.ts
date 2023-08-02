@@ -1,11 +1,15 @@
-import { Controller, Get, Render, Post, Body, Res } from '@nestjs/common';
+import { Controller, Get, Render, Post, Body, Res, Req } from '@nestjs/common';
 import { AccountService } from './../account.service';
+import { ProfileService } from './../../profile/profile.service';
 import { CreateAccountDto } from '../dto/account.dto';
 import { validate } from 'class-validator';
 
 @Controller('signup')
 export class SignupController {
-  constructor(private readonly accountService: AccountService) {}
+  constructor(
+    private readonly accountService: AccountService,
+    private readonly profileService: ProfileService,
+  ) {}
 
   // サインアップ
   @Get()
@@ -42,6 +46,9 @@ export class SignupController {
         // validation通ったdata
         const result = await this.accountService.createAccount(data); // アカウント作成実行
         request.session.account_id = result.account_id; // アカウントIDをセッションに入れる
+        const profile = await this.profileService.createProfile(
+          request.session.account_id,
+        ); // プロフィールを作成
         return response.redirect('/'); // トップにリダイレクト
       } catch (error) {
         console.log(error.message); // エラーが発生した場合はエラーメッセージを表示
