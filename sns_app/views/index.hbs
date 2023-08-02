@@ -54,7 +54,10 @@
             <div class='icon-box'>
               <img src='./images/testicon.png' alt='' class='icon' />
             </div>
-            <div class='user-name'>名前</div>
+            <div>
+              <div class='my-profile'>PIHIEF(30</div>
+              <div class='user-name'>あいうえお</div>
+            </div>
           </div>
           <div class='content'>
             content aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -70,7 +73,10 @@
             <div class='icon-box'>
               <img src='./images/.png' alt='' class='icon' />
             </div>
-            <div class='user-name'>あいうえお</div>
+            <div>
+              <div class='my-profile'>PIHIEF(30</div>
+              <div class='user-name'>あいうえお</div>
+            </div>
           </div>
           <div class='content'>
             content aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaa aaaaa
@@ -85,7 +91,10 @@
             <div class='icon-box'>
               <img src='./images/testicon.png' alt='' class='icon' />
             </div>
-            <div class='user-name'>名前</div>
+            <div>
+              <div class='my-profile'>PIHIEF(30</div>
+              <div class='user-name'>あいうえお</div>
+            </div>
           </div>
           <div class='content'>
             content aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -110,12 +119,16 @@
               <div class='user-name'>あいうえお</div>
             </div>
           </div>
-          <textarea
-            id='postContent'
-            rows='8'
-            placeholder='今どうしてる？'
-          ></textarea>
-          <button id='postButton'>投稿</button>
+          <form action='/post' method='post' class='post-form'>
+            <textarea
+              id='postContent'
+              rows='8'
+              placeholder='今どうしてる？'
+            ></textarea>
+            <div class='button-center'>
+              <button id='postButton'>投稿する</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

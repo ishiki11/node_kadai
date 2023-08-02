@@ -130,7 +130,6 @@ html {
 .content {
   width: 45vw;
   position: relative;
-  top: -2vh;
   margin: 0 auto;
   font-family: 'M PLUS 1';
   font-size: 1.5rem;
@@ -172,6 +171,10 @@ html {
   top: 25vh;
   font-family: 'M PLUS 1';
 }
+/* 投稿のフォーム */
+.post-form {
+  margin-bottom: 0;
+}
 /* 名前とアイコン */
 .my-info {
   display: flex;
@@ -210,17 +213,17 @@ html {
   outline: 1px solid #dcd5c8;
 }
 /* 投稿ボタン */
+.button-center {
+  text-align: center;
+}
 #postButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #d8dbd9;
   color: #000;
-  font-weight: 600;
+  font-weight: 500;
   border: none;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 3rem;
   border-radius: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   cursor: pointer;
 }
 
