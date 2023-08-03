@@ -15,16 +15,16 @@ export class PostController {
     // 投稿内容がない時
     if (!data.content) {
       alert('内容を記述してください');
-      return response.redirect('index');
+      return response.redirect('/');
     }
     // 投稿をデータベースに入れる
     try {
       const result = await this.postService.addPost(data);
       console.log(result);
-      return response.redirect('index');
+      return response.redirect('/');
     } catch (error) {
       alert('エラーが発生しました');
-      return response.redirect('index');
+      return response.redirect('/');
     }
   }
 }

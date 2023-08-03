@@ -15,19 +15,19 @@ export class AppController {
   ) {}
 
   // トップ
-  @Get()
+  @Get('')
   async home(@Req() request: any, @Res() response: any) {
     const account_id = request.session.account_id;
     // ログイン情報がない時はログイン画面遷移
     if (!request.session.account_id) {
       return response.redirect('signin');
     }
-    // const posts = await this.postService.getPost();
-    // console.log(posts);
+    const posts = await this.postService.getPost();
+    console.log('posts', posts);
     const myProfile = await this.profileService.findProfileById(account_id);
-    console.log(myProfile);
-    return response.render('index', {
-      // posts: posts,
+    console.log('myprofile', myProfile);
+    return response.render('', {
+      posts: posts,
       myProfile: myProfile,
     });
   }

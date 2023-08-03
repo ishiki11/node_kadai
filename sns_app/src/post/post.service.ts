@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+import { Posts, PrismaClient, Profiles } from '@prisma/client';
 
 @Injectable()
 export class PostService {
@@ -15,6 +15,24 @@ export class PostService {
       data: {
         account_id: data.account_id,
         content: data.content,
+      },
+    });
+  }
+
+  // 投稿一覧取得
+  async getPost(): Promise<Posts[]> {
+    return this.prisma.posts.findMany({
+      where: {
+        account: {
+          is_active: true,
+        },
+      },
+      include: {
+        account: {
+          include: {
+            profile: true,
+          },
+        },
       },
     });
   }
