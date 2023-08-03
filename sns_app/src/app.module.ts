@@ -9,12 +9,13 @@ import { SigninController } from './account/signin/signin.controller';
 import { ProfileService } from './profile/profile.service';
 import { PostService } from './post/post.service';
 import { PostController } from './post/post.controller';
+import { ProfileController } from './profile/profile.controller';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
   ],
-  controllers: [AppController, SignupController, SigninController, PostController],
+  controllers: [AppController, SignupController, SigninController, PostController, ProfileController],
   providers: [AppService, AccountService, ProfileService, PostService],
 })
 export class AppModule {}

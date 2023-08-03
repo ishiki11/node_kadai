@@ -46,15 +46,4 @@ export class AppController {
       return response.json({ error: error.message });
     }
   }
-
-  // プロフィール一覧取得
-  @Get('profile')
-  async getProfile(@Res() response: any) {
-    try {
-      const profiles = await this.profileService.getProfile();
-      return response.json(profiles);
-    } catch (error) {
-      return response.json({ error: error.message });
-    }
-  }
 }
