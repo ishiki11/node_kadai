@@ -135,7 +135,7 @@ html {
   font-weight: 400;
   line-height: normal;
   /* 改行含め表示 */
-  /* white-space: pre-wrap; */
+  white-space: pre-wrap;
 }
 /* いいねハートマーク */
 .like {
