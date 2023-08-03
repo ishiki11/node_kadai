@@ -21,4 +21,18 @@ export class ProfileService {
       },
     });
   }
+
+  // アカウントIDが一致するプロフィール取得
+  async findProfileById(account_id: number): Promise<Profiles | null> {
+    return this.prisma.profiles.findUnique({
+      where: {
+        account_id,
+      },
+    });
+  }
+
+  // プロフィール一覧取得
+  async getProfile(): Promise<Profiles[]> {
+    return this.prisma.profiles.findMany();
+  }
 }

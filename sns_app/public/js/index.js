@@ -1,3 +1,12 @@
+// ボタン要素とモーダル要素の取得
+const closeModalButton = document.getElementById('closeModalButton');
+const postModal = document.getElementById('postModal');
+
+// 閉じるボタンのクリックイベント
+closeModalButton.addEventListener('click', () => {
+  postModal.style.display = 'none';
+});
+
 // イベント
 function home() {
   location.href = '/';
@@ -14,7 +23,7 @@ function dm() {
   // location.href = '/dm';
   alert('まだ実装できてません');
 }
-function profile() {
+function myprofile() {
   // location.href = '/profile';
   alert('まだ実装できてません');
 }
@@ -22,5 +31,10 @@ function logout() {
   location.href = '/logout';
 }
 function send() {
-  console.log('send');
+  postModal.style.display = 'block';
+}
+function profile(data) {
+  alert('まだ実装できてません');
+  // alert('data:  ' + data);
+  // location.href = `/post/${data}`;
 }

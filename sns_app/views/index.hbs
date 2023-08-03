@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class='top'>
-      <!-- 左部分 -->
+      {{! 左部分  }}
       <div class='sidebar'>
         <div class='title'><a href='/'>SNSAPP</a></div>
         <div class='sidebar-item'>
@@ -31,7 +31,7 @@
             <img src='images/dm.png' alt='dm' class='img' />
             <span class='sidebar-text'>メッセージ</span>
           </div>
-          <div class='flex profile' onclick='profile()'>
+          <div class='flex profile' onclick='myprofile()'>
             <img src='images/profile.png' alt='proflie' class='img' />
             <span class='sidebar-text'>プロフィール</span>
           </div>
@@ -47,54 +47,60 @@
           </button>
         </div>
       </div>
-      <!-- 右部分　投稿 -->
+      {{!  右部分　投稿  }}
       <div class='posts'>
-        <div class='post'>
-          <div class='user-info'>
-            <div class='icon-box'>
-              <img src='./images/testicon.png' alt='' class='icon' />
+        {{#if posts}}
+          {{#each posts}}
+            <div class='post'>
+              <div class='user-info'>
+                <div class='icon-box'>
+                  <img
+                    src='{{this.account.profile.icon}}'
+                    alt='アイコン画像'
+                    class='icon'
+                    onclick='profile("{{this.account.profile.profile_id}}")'
+                  />
+                </div>
+                <div>
+                  <div
+                    class='my-profile'
+                  >{{this.account.profile.profile_id}}</div>
+                  <div class='user-name'>{{this.account.profile.name}}</div>
+                </div>
+              </div>
+              <div class='content'>{{this.content}}</div>
+              <div class='like'>
+                <img src='./images/like.png' alt='ハート' />
+              </div>
             </div>
-            <div class='user-name'>名前</div>
-          </div>
-          <div class='content'>
-            content aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa こんにちは テスト投稿 desu
-          </div>
-          <div class='like'>
-            <img src='./images/like.png' alt='ハート' />
-          </div>
-        </div>
-        <div class='post'>
-          <div class='user-info'>
+          {{/each}}
+        {{/if}}
+      </div>
+      {{! 投稿する部分 }}
+      <div class='modal' id='postModal'>
+        <div class='modal-content'>
+          <span class='close' id='closeModalButton'>&times;</span>
+          <div class='my-info'>
             <div class='icon-box'>
-              <img src='./images/.png' alt='' class='icon' />
+              <img src='{{myProfile.icon}}' alt='' class='icon' />
             </div>
-            <div class='user-name'>あいうえお</div>
-          </div>
-          <div class='content'>
-            content aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaa aaaaa
-            aaaaaaaaaaaaaaaaa aa a a a a a a a aa
-          </div>
-          <div class='like'>
-            <img src='./images/liked.png' alt='ハート' />
-          </div>
-        </div>
-        <div class='post'>
-          <div class='user-info'>
-            <div class='icon-box'>
-              <img src='./images/testicon.png' alt='' class='icon' />
+            <div>
+              <div class='my-profile'>{{myProfile.profile_id}}</div>
+              <div class='user-name'>{{myProfile.name}}</div>
             </div>
-            <div class='user-name'>名前</div>
           </div>
-          <div class='content'>
-            content aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa こんにちは テスト投稿 desu
-          </div>
-          <div class='like'>
-            <img src='./images/like.png' alt='ハート' />
-          </div>
+          <form action='/post' method='post' class='post-form'>
+            <textarea
+              id='postContent'
+              rows='8'
+              name='content'
+              placeholder='今どうしてる？'
+              required
+            ></textarea>
+            <div class='button-center'>
+              <button id='postButton'>投稿する</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

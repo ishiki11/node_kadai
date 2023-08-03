@@ -104,7 +104,6 @@ html {
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 50%;
-  background-color: #d8dbd9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,14 +129,13 @@ html {
 .content {
   width: 45vw;
   position: relative;
-  top: -2vh;
   margin: 0 auto;
   font-family: 'M PLUS 1';
   font-size: 1.5rem;
   font-weight: 400;
   line-height: normal;
   /* 改行含め表示 */
-  /* white-space: pre-wrap; */
+  white-space: pre-wrap;
 }
 /* いいねハートマーク */
 .like {
@@ -146,6 +144,85 @@ html {
   left: 53vw;
 }
 .like:hover {
+  cursor: pointer;
+}
+
+/* モーダル全体 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* モーダルのコンテンツ */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid #888;
+  border-radius: 1rem;
+  width: 40vw;
+  max-width: 40vw;
+  top: 25vh;
+  font-family: 'M PLUS 1';
+}
+/* 投稿のフォーム */
+.post-form {
+  margin-bottom: 0;
+}
+/* 名前とアイコン */
+.my-info {
+  display: flex;
+  align-items: center;
+}
+.my-name {
+  margin-left: 1rem;
+  font-family: 'M PLUS 1';
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: normal;
+}
+.my-profile {
+  margin-left: 1rem;
+}
+/* 閉じるボタン */
+.close {
+  position: absolute;
+  top: 1vh;
+  right: 2vw;
+  font-size: 2.8rem;
+  color: #1f1e53;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* テキストエリア */
+#postContent {
+  width: 40vw;
+  resize: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  border: 2px solid #dcd5c8;
+}
+#postContent:focus {
+  outline: 1px solid #dcd5c8;
+}
+/* 投稿ボタン */
+.button-center {
+  text-align: center;
+}
+#postButton {
+  background-color: #d8dbd9;
+  color: #000;
+  font-weight: 500;
+  border: none;
+  padding: 0.5rem 3rem;
+  border-radius: 1.5rem;
+  font-size: 1.3rem;
   cursor: pointer;
 }
 
