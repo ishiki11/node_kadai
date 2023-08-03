@@ -23,7 +23,7 @@ function dm() {
   // location.href = '/dm';
   alert('まだ実装できてません');
 }
-function profile() {
+function myprofile() {
   // location.href = '/profile';
   alert('まだ実装できてません');
 }
@@ -32,4 +32,9 @@ function logout() {
 }
 function send() {
   postModal.style.display = 'block';
+}
+function profile(data) {
+  alert('まだ実装できてません');
+  // alert('data:  ' + data);
+  // location.href = `/post/${data}`;
 }
