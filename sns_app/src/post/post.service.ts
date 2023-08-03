@@ -34,6 +34,9 @@ export class PostService {
           },
         },
       },
+      orderBy: {
+        created_at: 'desc',
+      },
     });
   }
 }

@@ -54,11 +54,17 @@
             <div class='post'>
               <div class='user-info'>
                 <div class='icon-box'>
-                  <img src='./images/testicon.png' alt='' class='icon' />
+                  <img
+                    src='{{this.account.profile.icon}}'
+                    alt='アイコン画像'
+                    class='icon'
+                  />
                 </div>
                 <div>
-                  <div class='my-profile'>PIHIEF(30</div>
-                  <div class='user-name'>あいうえお</div>
+                  <div
+                    class='my-profile'
+                  >{{this.account.profile.profile_id}}</div>
+                  <div class='user-name'>{{this.account.profile.name}}</div>
                 </div>
               </div>
               <div class='content'>{{this.content}}</div>
@@ -99,7 +105,7 @@
           <div class='content'>
             content aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa こんにちは テスト投稿 desu
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           </div>
           <div class='like'>
             <img src='./images/like.png' alt='ハート' />

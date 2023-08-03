@@ -1,5 +1,4 @@
 import { Controller, Get, Req, Res } from '@nestjs/common';
-import { AppService } from './app.service';
 import { AccountService } from './account/account.service';
 import { ProfileService } from './profile/profile.service';
 import { PostService } from './post/post.service';
@@ -8,7 +7,6 @@ import { PostService } from './post/post.service';
 export class AppController {
   // constructorに入れることで自動でDIする
   constructor(
-    private readonly appService: AppService,
     private readonly accountService: AccountService,
     private readonly profileService: ProfileService,
     private readonly postService: PostService,
@@ -25,7 +23,6 @@ export class AppController {
     const posts = await this.postService.getPost();
     console.log('posts', posts);
     const myProfile = await this.profileService.findProfileById(account_id);
-    console.log('myprofile', myProfile);
     return response.render('', {
       posts: posts,
       myProfile: myProfile,
