@@ -37,6 +37,7 @@ export class PostService {
       orderBy: {
         created_at: 'desc',
       },
+      take: 20, // 取得数
     });
   }
 }
