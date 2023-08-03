@@ -14,22 +14,25 @@ export class AppController {
     private readonly postService: PostService,
   ) {}
 
+  // トップ
   @Get()
   async home(@Req() request: any, @Res() response: any) {
     const account_id = request.session.account_id;
+    // ログイン情報がない時はログイン画面遷移
     if (!request.session.account_id) {
       return response.redirect('signin');
     }
-    const posts = await this.postService.getPost();
-    console.log(posts);
+    // const posts = await this.postService.getPost();
+    // console.log(posts);
     const myProfile = await this.profileService.findProfileById(account_id);
     console.log(myProfile);
     return response.render('index', {
-      posts: posts,
+      // posts: posts,
       myProfile: myProfile,
     });
   }
 
+  // ログアウト
   @Get('logout')
   Logout(@Req() request: any, @Res() response: any) {
     request.session = {};
