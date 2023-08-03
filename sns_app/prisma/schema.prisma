@@ -18,18 +18,22 @@ model Accounts {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   profile Profiles?
+  posts Posts[]
+  follower Followers[]
+  likes Likes[]
+  comment Comments[]
 }
 
 model Profiles {
-  // ProfilesのアカウントIDとAccountsのアカウントIDを一対一の関係にした
   account_id Int @id @unique
-  account Accounts @relation(fields: [account_id], references: [account_id])
   profile_id String @unique @default(uuid())
   name String @default("名無しさん")
   self_pr String?
   icon String @default("https://icooon-mono.com/i/icon_14440/icon_144400.svg")
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  // ProfilesとAccountsを一対一
+  account Accounts @relation(fields: [account_id], references: [account_id])
 }
 
 model Followers {
@@ -37,6 +41,8 @@ model Followers {
   follower_id Int
   created_at DateTime @default(now())
   @@id([follow_id, follower_id])
+  // FollowersとAccountsを一対多
+  account Accounts @relation(fields: [follower_id], references: [account_id])
 }
 
 model Posts {
@@ -44,19 +50,31 @@ model Posts {
   account_id Int
   content String
   created_at DateTime @default(now())
+  // PostsとAccountsを一対多
+  account Accounts @relation(fields: [account_id], references: [account_id])
+  likes Likes[]
+  comment Comments[]
 }
 
 model Likes {
-  account_id Int
   post_id Int
+  account_id Int // いいねしたアカウントID
   created_at DateTime @default(now())
-  @@id([account_id, post_id])
+  @@id([post_id, account_id])
+  // LikesとAccountsを一対多
+  account Accounts @relation(fields: [account_id], references: [account_id])
+  // LikesとPostsを一対多
+  post Posts @relation(fields: [post_id], references: [post_id])
 }
 
 model Comments {
   comment_id Int @id @default(autoincrement())
-  account_id Int
+  account_id Int // コメントしたアカウントID
   post_id Int
   content String
-  created_at DateTime @default(now())
+  created_at DateTime @default(now())  
+  // CommentsとAccountsを一対多
+  account Accounts @relation(fields: [account_id], references: [account_id])  
+  // CommentsとPostsを一対多
+  post Posts @relation(fields: [post_id], references: [post_id])
 }
