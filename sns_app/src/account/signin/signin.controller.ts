@@ -39,9 +39,9 @@ export class SigninController {
         errors: flatErrors,
       });
     } else {
-      // ログイン処理
+      // サインイン処理
       try {
-        const result = await this.accountService.signinAccount(data); // ログイン実行
+        const result = await this.accountService.signinAccount(data); // サインイン実行
         request.session.account_id = result.account_id; // アカウントIDをセッションに入れる
         return response.redirect('/'); // トップにリダイレクト
       } catch (error) {

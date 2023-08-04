@@ -114,9 +114,8 @@ html {
 }
 /* アイコン画像 */
 .profile-iconbox {
-  width: 8rem;
+  width: 10vw;
   height: 8rem;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,11 +126,18 @@ html {
   border-radius: 50%;
 }
 /* 名前、自己紹介、id */
+.profile-box {
+  width: 30vw;
+}
 .profile-name {
   font-family: 'M PLUS 1';
   font-size: 2rem;
   font-weight: 500;
   line-height: normal;
+}
+.self_pr {
+  /* 改行含め表示 */
+  white-space: pre-wrap;
 }
 /* ボタン */
 .profile-button {
@@ -247,7 +253,117 @@ html {
   cursor: pointer;
 }
 
-/* 画像 */
+/* 
+  編集画面のcss
+*/
+/* 画像とアカウント削除ボタン */
+.edit-upper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin: 0 auto;
+  border-bottom: solid 3px #1f1e53;
+}
+/* 削除ボタン */
+.delete-button {
+  background-color: #dcd5c8;
+  padding: 0.3rem 1.5rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+/* 編集のdev */
+.edit-text {
+  width: 10vw;
+  text-align: center;
+}
+/* 名前 */
+.edit-name {
+  margin: 0 auto;
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+}
+.edit-name input {
+  width: 30vw;
+  border: 2px solid #dcd5c8;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+}
+/* id */
+.edit-id {
+  margin: 0 auto;
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+}
+.edit-id input {
+  width: 30vw;
+  border: 2px solid #dcd5c8;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+}
+/* 自己紹介 */
+.edit-selfpr {
+  margin: 0 auto;
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+}
+.edit-selfpr textarea {
+  width: 30vw;
+  border: 2px solid #dcd5c8;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+}
+/* 名前　id　自己紹介 */
+.edit-name,
+.edit-id,
+.edit-selfpr {
+  margin-top: 5vh;
+  margin-bottom: 8vh;
+  color: #000;
+  font-family: 'M PLUS 1';
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+/* 編集の下のボタン */
+.edit-button {
+  display: flex;
+  width: 35vw;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.edit-cancel {
+  background-color: #d8dbd9;
+  padding: 0.3rem 1.5rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.edit-save {
+  background-color: #dcd5c8;
+  padding: 0.3rem 1.5rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.edit-save:hover {
+  background-color: #c7bfb3;
+}
 
 @media screen and (min-width: 1920px) {
   /* 1920px以上に適用 */

@@ -22,7 +22,16 @@ function myprofile() {
 function logout() {
   location.href = '/logout';
 }
-// 編集する
-function profileEdit() {
-  location.href = '/profile/edit';
+
+/**
+ * 編集のイベント
+ */
+// アカウント削除
+function profileDelete() {
+  // is_activeをfalseに
+  alert('まだ実装できてません');
+}
+// 編集取消
+function editCancel() {
+  location.href = '/profile';
 }

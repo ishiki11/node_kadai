@@ -40,6 +40,20 @@ export class ProfileService {
     });
   }
 
+  // 編集機能
+  async updateProfile(accountId: number, data: any): Promise<Profiles | null> {
+    return this.prisma.profiles.update({
+      where: {
+        account_id: accountId,
+      },
+      data: {
+        profile_id: data.profile_id,
+        name: data.name,
+        self_pr: data.self_pr,
+      },
+    });
+  }
+
   // プロフィール一覧取得
   async getProfile(): Promise<Profiles[]> {
     return this.prisma.profiles.findMany();
