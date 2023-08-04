@@ -2,7 +2,7 @@
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='stylesheet' href='./styles/profile.css' />
+    <link rel='stylesheet' href='/styles/profile.css' />
     <link
       href='https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=M+PLUS+1&family=M+PLUS+2:wght@400;500;600&display=swap'
       rel='stylesheet'
@@ -16,27 +16,27 @@
         <div class='title'><a href='/'>SNSAPP</a></div>
         <div class='sidebar-item'>
           <div class='flex home' onclick='home()'>
-            <img src='images/home.png' alt='home' class='img' />
+            <img src='/images/home.png' alt='home' class='img' />
             <span class='sidebar-text'>ホーム</span>
           </div>
           <div class='flex search' onclick='search()'>
-            <img src='images/search.png' alt='search' class='img' />
+            <img src='/images/search.png' alt='search' class='img' />
             <span class='sidebar-text'>検索</span>
           </div>
           <div class='flex bell' onclick='bell()'>
-            <img src='images/bell.png' alt='bell' class='img' />
+            <img src='/images/bell.png' alt='bell' class='img' />
             <span class='sidebar-text'>通知</span>
           </div>
           <div class='flex dm' onclick='dm()'>
-            <img src='images/dm.png' alt='dm' class='img' />
+            <img src='/images/dm.png' alt='dm' class='img' />
             <span class='sidebar-text'>メッセージ</span>
           </div>
           <div class='flex profile' onclick='myprofile()'>
-            <img src='images/profile.png' alt='proflie' class='img' />
+            <img src='/images/profile.png' alt='proflie' class='img' />
             <span class='sidebar-text'>プロフィール</span>
           </div>
           <div class='flex logout' onclick='logout()'>
-            <img src='images/logout.png' alt='logout' class='img' />
+            <img src='/images/logout.png' alt='logout' class='img' />
             <span class='sidebar-text'>ログアウト</span>
           </div>
         </div>
@@ -96,7 +96,7 @@
                 </div>
                 <div class='content'>{{this.content}}</div>
                 <div class='like'>
-                  <img src='./images/like.png' alt='ハート' />
+                  <img src='/images/like.png' alt='ハート' />
                 </div>
               </div>
             {{/each}}
@@ -104,6 +104,6 @@
         </div>
       </div>
     </div>
-    <script src='./js/myprofile.js'></script>
+    <script src='/js/myprofile.js'></script>
   </body>
 </html>
