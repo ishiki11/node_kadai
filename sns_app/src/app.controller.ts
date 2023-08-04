@@ -21,7 +21,6 @@ export class AppController {
       return response.redirect('signin');
     }
     const posts = await this.postService.getPost();
-    console.log('posts', posts);
     const myProfile = await this.profileService.findProfileById(account_id);
     return response.render('', {
       posts: posts,
@@ -42,17 +41,6 @@ export class AppController {
     try {
       const accounts = await this.accountService.getAccount();
       return response.json(accounts);
-    } catch (error) {
-      return response.json({ error: error.message });
-    }
-  }
-
-  // プロフィール一覧取得
-  @Get('profile')
-  async getProfile(@Res() response: any) {
-    try {
-      const profiles = await this.profileService.getProfile();
-      return response.json(profiles);
     } catch (error) {
       return response.json({ error: error.message });
     }

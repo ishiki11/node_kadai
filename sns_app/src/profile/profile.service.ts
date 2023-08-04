@@ -22,11 +22,34 @@ export class ProfileService {
     });
   }
 
-  // アカウントIDが一致するプロフィール取得
-  async findProfileById(account_id: number): Promise<Profiles | null> {
+  // プロフィールIDが一致するプロフィール取得
+  async findProfileByProfileId(profileId: string): Promise<Profiles | null> {
     return this.prisma.profiles.findUnique({
       where: {
-        account_id,
+        profile_id: profileId,
+      },
+    });
+  }
+
+  // アカウントIDが一致するプロフィール取得
+  async findProfileById(accountId: number): Promise<Profiles | null> {
+    return this.prisma.profiles.findUnique({
+      where: {
+        account_id: accountId,
+      },
+    });
+  }
+
+  // 編集機能
+  async updateProfile(accountId: number, data: any): Promise<Profiles | null> {
+    return this.prisma.profiles.update({
+      where: {
+        account_id: accountId,
+      },
+      data: {
+        profile_id: data.profile_id,
+        name: data.name,
+        self_pr: data.self_pr,
       },
     });
   }
