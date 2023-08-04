@@ -49,7 +49,7 @@ export class SignupController {
         const profile = await this.profileService.createProfile(
           request.session.account_id,
         ); // プロフィールを作成
-        return response.redirect('/'); // トップにリダイレクト
+        return response.redirect('/profile/edit'); // トップにリダイレクト
       } catch (error) {
         console.log(error.message); // エラーが発生した場合はエラーメッセージを表示
         return response.render('signup', {
