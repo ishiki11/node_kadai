@@ -1,0 +1,263 @@
+/* 全体のcss */
+html {
+  font-size: 16px;
+  font-family: 'M PLUS 2';
+}
+/* サイドバーと投稿表示 */
+.top {
+  display: flex;
+}
+
+/* 
+左部分
+*/
+/* サイドバー */
+.sidebar {
+  width: 20vw;
+  margin: 1rem 0;
+  height: 93vh;
+  border-right: solid #000 2px;
+  position: fixed;
+  top: 0;
+}
+/* SNSAPP */
+.title {
+  color: #1f1e53;
+  width: 18vw;
+  font-size: 4.5rem;
+  font-family: 'Love Ya Like A Sister';
+  font-weight: 500;
+  word-wrap: break-word;
+  position: relative;
+  top: 1.2vh;
+  left: 2vw;
+}
+.title > a {
+  text-decoration: none;
+  color: #1f1e53;
+}
+/* サイドバータイトル以外 */
+.sidebar-item {
+  width: 20vw;
+  margin-left: 3vw;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+/* 検索、通知、メッセージ、プロフィール */
+.home,
+.search,
+.bell,
+.dm,
+.profile,
+.logout {
+  cursor: pointer;
+  margin-top: 5vh;
+}
+/* サイドバーの文字 */
+.sidebar-text {
+  color: #000;
+  font-family: 'M PLUS 2';
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+/* サイドバーの画像 */
+.img {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1.5vw;
+}
+/* send */
+.send {
+  margin-top: 8vh;
+  display: flex;
+  justify-content: center;
+}
+/* 投稿するボタン */
+.send-button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1.5rem;
+  background: #d8dbd9;
+  cursor: pointer;
+}
+
+/*
+右部分
+*/
+.profile-data {
+  width: 60vw;
+  height: auto;
+  margin-left: 30vw;
+}
+/* 
+  右部分　上部
+*/
+.profile-upper {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  width: 60vw;
+  height: auto;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  border-bottom: solid 3px #1f1e53;
+}
+/* 画像 id name self_pr */
+.profile-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* アイコン画像 */
+.profile-iconbox {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-icon {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+}
+/* 名前、自己紹介、id */
+.profile-name {
+  font-family: 'M PLUS 1';
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: normal;
+}
+/* ボタン */
+.profile-button {
+  display: flex;
+  flex-direction: column;
+}
+.profile-edit {
+  background-color: #d8dbd9;
+  padding: 0.3rem 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.profile-like {
+  margin-top: 1.5rem;
+  background-color: #d8dbd9;
+  padding: 0.3rem 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+/* フォロー、フォロワー */
+.profile-under {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.followers {
+  margin-top: 1rem;
+  width: 25vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+.follow-button {
+  background-color: #dcd5c8;
+  padding: 0.2rem 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/*
+  右部分　下部
+*/
+/* 投稿一覧 */
+.posts {
+  width: 60vw;
+  height: auto;
+  margin-top: 15rem;
+  margin-bottom: 1.5rem;
+}
+/* 投稿 */
+.post {
+  padding: 1rem 1rem;
+  border-top: 3px solid #dcd5c8;
+  border-bottom: 3px solid #dcd5c8;
+}
+/* 名前とアイコン */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+/* 名前 */
+.user-name {
+  margin-left: 1rem;
+  font-family: 'M PLUS 1';
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: normal;
+}
+.my-profile {
+  margin-left: 1rem;
+}
+/* icon-box */
+.icon-box {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* アイコン */
+.icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+}
+/* 投稿内容 */
+.content {
+  width: 45vw;
+  margin: 0 auto;
+  font-family: 'M PLUS 1';
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: normal;
+  /* 改行含め表示 */
+  white-space: pre-wrap;
+}
+/* いいねハートマーク */
+.like {
+  width: 5vh;
+  margin-left: 53vw;
+}
+.like:hover {
+  cursor: pointer;
+}
+
+/* 画像 */
+
+@media screen and (min-width: 1920px) {
+  /* 1920px以上に適用 */
+  html {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  /* 1024以下に適用 */
+  html {
+    font-size: 10px;
+  }
+}

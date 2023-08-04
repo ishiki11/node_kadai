@@ -10,7 +10,7 @@ export class ProfileController {
   ) {}
 
   // プロフィール一覧取得
-  @Get('json')
+  @Get('/json')
   async getProfiles(@Res() response: any) {
     try {
       const profiles = await this.profileService.getProfile();
@@ -20,21 +20,21 @@ export class ProfileController {
     }
   }
 
-  // プロフィール画面描画
-  @Get()
+  // 自分のプロフィール
+  @Get('/')
   async testProfile(@Req() request: any, @Res() response: any) {
     // ログインしてるアカウントID取得
     const account_id = request.session.account_id;
     if (!account_id) {
       // ログインしてない時
-      return response.redirect('signin');
+      return response.redirect('/signin');
     }
     try {
       // アカウントIDが一致するプロフィール取得
       const result = await this.profileService.findProfileById(account_id);
       // アカウントIDが一致する投稿取得
       const posts = await this.postService.findPostById(account_id);
-      return response.render('profile', {
+      return response.render('myprofile', {
         posts: posts,
         profile: result,
       });

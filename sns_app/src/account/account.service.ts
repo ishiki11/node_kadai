@@ -55,10 +55,7 @@ export class AccountService {
     }
     // bcrypt.compare() メソッドをawaitで呼び出す
     const isMatch = await bcrypt.compare(password, account.hashed_password);
-    if (isMatch) {
-      // パスワードが一致した場合の処理
-      console.log('パスワードが一致しました');
-    } else {
+    if (!isMatch) {
       // パスワードが一致しない場合の処理
       throw new Error('パスワードが間違っています');
     }

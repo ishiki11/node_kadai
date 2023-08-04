@@ -1,0 +1,109 @@
+<html lang='ja'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' href='./styles/profile.css' />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=M+PLUS+1&family=M+PLUS+2:wght@400;500;600&display=swap'
+      rel='stylesheet'
+    />
+    <title>SNSAPP</title>
+  </head>
+  <body>
+    <div class='top'>
+      {{! 左部分  }}
+      <div class='sidebar'>
+        <div class='title'><a href='/'>SNSAPP</a></div>
+        <div class='sidebar-item'>
+          <div class='flex home' onclick='home()'>
+            <img src='images/home.png' alt='home' class='img' />
+            <span class='sidebar-text'>ホーム</span>
+          </div>
+          <div class='flex search' onclick='search()'>
+            <img src='images/search.png' alt='search' class='img' />
+            <span class='sidebar-text'>検索</span>
+          </div>
+          <div class='flex bell' onclick='bell()'>
+            <img src='images/bell.png' alt='bell' class='img' />
+            <span class='sidebar-text'>通知</span>
+          </div>
+          <div class='flex dm' onclick='dm()'>
+            <img src='images/dm.png' alt='dm' class='img' />
+            <span class='sidebar-text'>メッセージ</span>
+          </div>
+          <div class='flex profile' onclick='myprofile()'>
+            <img src='images/profile.png' alt='proflie' class='img' />
+            <span class='sidebar-text'>プロフィール</span>
+          </div>
+          <div class='flex logout' onclick='logout()'>
+            <img src='images/logout.png' alt='logout' class='img' />
+            <span class='sidebar-text'>ログアウト</span>
+          </div>
+        </div>
+      </div>
+      {{!  右部分　プロフィールのデータ  }}
+      <div class='profile-data'>
+        {{! プロフィール上部分 }}
+        <div class='profile-upper'>
+          <div class='profile-info'>
+            <div class='profile-iconbox'>
+              <img
+                src='{{profile.icon}}'
+                alt='アイコン画像'
+                class='profile-icon'
+              />
+            </div>
+            <div class='profile-box'>
+              <div class='profile-id'>{{profile.profile_id}}</div>
+              <div class='profile-name'>{{profile.name}}</div>
+              <div class='self_pr'>{{profile.self_pr}}</div>
+            </div>
+            <div class='profile-button'>
+              <button
+                class='profile-edit'
+                onclick='profileEdit()'
+              >プロフィールを編集</button>
+              <button
+                class='profile-like'
+                onclick='profileLiked()'
+              >いいねした投稿</button>
+            </div>
+          </div>
+          <div class='followers'>
+            <div class='follow'>フォロー中：0人</div>
+            <div class='follower'>フォロワー：0人</div>
+          </div>
+        </div>
+        {{! プロフィール下の投稿部分 }}
+        <div class='posts'>
+          {{#if posts}}
+            {{#each posts}}
+              <div class='post'>
+                <div class='user-info'>
+                  <div class='icon-box'>
+                    <img
+                      src='{{this.account.profile.icon}}'
+                      alt='アイコン画像'
+                      class='icon'
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class='my-profile'
+                    >{{this.account.profile.profile_id}}</div>
+                    <div class='user-name'>{{this.account.profile.name}}</div>
+                  </div>
+                </div>
+                <div class='content'>{{this.content}}</div>
+                <div class='like'>
+                  <img src='./images/like.png' alt='ハート' />
+                </div>
+              </div>
+            {{/each}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <script src='./js/myprofile.js'></script>
+  </body>
+</html>
