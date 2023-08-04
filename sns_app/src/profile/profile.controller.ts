@@ -44,13 +44,24 @@ export class ProfileController {
   }
 
   // プロフィールIDからプロフィール取得 /profile/:data
-  @Get(':data')
+  @Get('/:data')
   async Profiles(
     @Param('data') data: string,
-    @Req() request: any,
     @Res() response: any,
+    @Req() request: any,
   ) {
+    const account_id = request.session.account_id;
+    if (!account_id) {
+      // ログインしてない時
+      return response.redirect('/signin');
+    }
     try {
+      // アカウントIDからprofile取得
+      const profile = await this.profileService.findProfileById(account_id);
+      // 今ログインしてるプロフィールの場合
+      if (profile.profile_id == data) {
+        return response.redirect('/profile');
+      }
       // プロフィールIDが一致するプロフィール取得
       const result = await this.profileService.findProfileByProfileId(data);
       // プロフィールIDが一致する投稿取得
