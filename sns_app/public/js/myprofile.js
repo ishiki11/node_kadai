@@ -22,6 +22,10 @@ function myprofile() {
 function logout() {
   location.href = '/logout';
 }
+// いいねした投稿を表示する
+function profileLiked() {
+  alert('まだ実装できてません');
+}
 // 編集する
 function profileEdit() {
   location.href = '/profile/edit';
