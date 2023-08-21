@@ -123,3 +123,16 @@
   text-align: right;
   margin-right: 3rem;
 }
+
+@media screen and (min-width: 1920px) {
+  /* 1920px以上に適用 */
+  html {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  /* 1024以下に適用 */
+  html {
+    font-size: 10px;
+  }
+}
