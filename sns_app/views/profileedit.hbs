@@ -65,8 +65,19 @@
         >
           <div class='edit-iconbox'>
             <div class='edit-text'>アイコン</div>
-            <img src='{{profile.icon}}' alt='アイコン画像' class='edit-icon' />
-            <input type='file' name='image' id='image' accept='image/*' />
+            <img
+              src='{{profile.icon}}'
+              alt='アイコン画像'
+              class='edit-icon'
+              id='image-preview'
+            />
+            <input
+              type='file'
+              name='image'
+              src='#'
+              id='image-input'
+              accept='image/*'
+            />
           </div>
           <div class='edit-name'>
             <div class='edit-text'>名前</div>
