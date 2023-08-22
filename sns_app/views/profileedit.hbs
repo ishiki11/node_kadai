@@ -58,7 +58,16 @@
             >アカウント削除</button>
           </div>
         </div>
-        <form action='/profile/edit' method='post'>
+        <form
+          action='/profile/edit'
+          method='post'
+          enctype='multipart/form-data'
+        >
+          <div class='edit-iconbox'>
+            <div class='edit-text'>アイコン</div>
+            <img src='{{profile.icon}}' alt='アイコン画像' class='edit-icon' />
+            <input type='file' name='image' id='image' accept='image/*' />
+          </div>
           <div class='edit-name'>
             <div class='edit-text'>名前</div>
             <input

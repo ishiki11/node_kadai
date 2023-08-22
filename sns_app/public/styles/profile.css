@@ -281,6 +281,19 @@ html {
   width: 10vw;
   text-align: center;
 }
+/* 画像編集 */
+.edit-iconbox {
+  margin: 0 auto;
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.edit-icon {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
 /* 名前 */
 .edit-name {
   margin: 0 auto;

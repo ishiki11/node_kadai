@@ -1,6 +1,18 @@
-import { Controller, Get, Param, Req, Res, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Req,
+  Res,
+  Post,
+  Body,
+  UseInterceptors,
+  UploadedFile,
+} from '@nestjs/common';
 import { ProfileService } from './profile.service';
 import { PostService } from './../post/post.service';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { File } from 'multer';
 
 @Controller('profile')
 export class ProfileController {
@@ -64,12 +76,17 @@ export class ProfileController {
 
   // 編集する
   @Post('/edit')
+  @UseInterceptors(FileInterceptor('image'))
   async profileEdit(
     @Body() data: any,
     @Res() response: any,
     @Req() request: any,
+    @UploadedFile() file: File,
   ) {
     const account_id = request.session.account_id;
+    console.log(file);
+    console.log(file.originalname);
+    console.log(file.filename);
     try {
       // アカウントIDからprofile取得
       const profile = await this.profileService.findProfileById(account_id);
