@@ -119,6 +119,7 @@
 }
 /* ログインへ */
 .link {
+  font-size: 1rem;
   margin-top: 0.3rem;
   text-align: right;
   margin-right: 3rem;
