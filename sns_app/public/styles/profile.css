@@ -276,11 +276,6 @@ html {
   font-size: 1.2rem;
   cursor: pointer;
 }
-/* 編集のdev */
-.edit-text {
-  width: 10vw;
-  text-align: center;
-}
 /* 画像編集 */
 .edit-iconbox {
   margin: 0 auto;
@@ -293,6 +288,11 @@ html {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
+}
+/* 編集のdev */
+.edit-text {
+  width: 10vw;
+  text-align: center;
 }
 /* 名前 */
 .edit-name {
@@ -337,6 +337,7 @@ html {
   font-size: 1.3rem;
 }
 /* 名前　id　自己紹介 */
+.edit-iconbox,
 .edit-name,
 .edit-id,
 .edit-selfpr {
