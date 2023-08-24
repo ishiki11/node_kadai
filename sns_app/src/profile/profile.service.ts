@@ -50,6 +50,7 @@ export class ProfileService {
         profile_id: data.profile_id,
         name: data.name,
         self_pr: data.self_pr,
+        icon: data.icon,
       },
     });
   }

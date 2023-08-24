@@ -84,19 +84,23 @@ export class ProfileController {
     @UploadedFile() file: File,
   ) {
     const account_id = request.session.account_id;
-    console.log(file);
-    console.log(file.originalname);
-    console.log(file.filename);
     try {
       // アカウントIDからprofile取得
       const profile = await this.profileService.findProfileById(account_id);
-      if (!data.name && !data.profile_id && !data.self_pr) {
+      if (!file && !data.name && !data.profile_id && !data.self_pr) {
         // 何も入力がない時
         return response.render('profileedit', {
           profile: profile,
           errors: '何も入力されていません',
         });
       } else {
+        // 画像が入力されていないとき
+        if (!file) {
+          // 元の値を入れる
+          data.icon = profile.icon;
+        } else {
+          data.icon = 'images/' + file.filename;
+        }
         // 名前が入力されていない時
         if (!data.name) {
           // 元の値を入れる
@@ -122,6 +126,7 @@ export class ProfileController {
         if (!data.self_pr) {
           data.self_pr = profile.self_pr;
         }
+        console.log('data: ', data);
         // プロフィールを更新する
         const update = await this.profileService.updateProfile(
           account_id,
