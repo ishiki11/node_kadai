@@ -10,12 +10,20 @@ import { ProfileService } from './profile/profile.service';
 import { PostService } from './post/post.service';
 import { PostController } from './post/post.controller';
 import { ProfileController } from './profile/profile.controller';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
+    MulterModule.register({ dest: './public/images' }),
   ],
-  controllers: [AppController, SignupController, SigninController, PostController, ProfileController],
+  controllers: [
+    AppController,
+    SignupController,
+    SigninController,
+    PostController,
+    ProfileController,
+  ],
   providers: [AppService, AccountService, ProfileService, PostService],
 })
 export class AppModule {}

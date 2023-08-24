@@ -51,6 +51,11 @@
               class='profile-icon'
             />
           </div>
+          <div class='profile-box'>
+            <div class='profile-id'>{{profile.profile_id}}</div>
+            <div class='profile-name'>{{profile.name}}</div>
+            <div class='self_pr'>{{profile.self_pr}}</div>
+          </div>
           <div class='profile-delete'>
             <button
               class='delete-button'
@@ -58,7 +63,27 @@
             >アカウント削除</button>
           </div>
         </div>
-        <form action='/profile/edit' method='post'>
+        <form
+          action='/profile/edit'
+          method='post'
+          enctype='multipart/form-data'
+        >
+          <div class='edit-iconbox'>
+            <div class='edit-text'>アイコン</div>
+            <img
+              src='{{profile.icon}}'
+              alt='アイコン画像'
+              class='edit-icon'
+              id='image-preview'
+            />
+            <input
+              type='file'
+              name='image'
+              src='#'
+              id='image-input'
+              accept='image/*'
+            />
+          </div>
           <div class='edit-name'>
             <div class='edit-text'>名前</div>
             <input

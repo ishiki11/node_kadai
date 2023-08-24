@@ -26,6 +26,24 @@ function logout() {
 /**
  * 編集のイベント
  */
+const imageInput = document.getElementById('image-input');
+const imagePreview = document.getElementById('image-preview');
+imageInput.addEventListener('change', () => {
+  const file = imageInput.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      imagePreview.src = event.target.result;
+      imagePreview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  } else {
+    imagePreview.src = '{{ profile.icon }}';
+    imagePreview.style.display = 'none';
+  }
+});
+
 // アカウント削除
 function profileDelete() {
   // is_activeをfalseに
